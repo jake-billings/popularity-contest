@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/js-sha256/build/sha256.min.js"></script>
+    <script src="lib/popularity-contest.js"></script>
+</head>
+<body>
+<script>
+    popularityContest.onLoad(function () {
+        console.log('load');
+        console.log(popularityContest.generateElection("http://eakjb.com"))
+    })
+</script>
+</body>
+</html>
