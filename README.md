@@ -4,6 +4,8 @@ Coming Soon
 ## Develop the Chrome Extension
 
 1. Clone this repository
+1. cd `src/frontend`
+1. run `yarn install`
 2. Click the three dot menu in the upper right
 3. Navigate to More Tools > Extensions
 4. Check Developer Mode
