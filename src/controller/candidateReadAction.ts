@@ -7,7 +7,6 @@ export async function candidateReadAction(context: Context) {
 
     context.body = await candidateRepo.createQueryBuilder('candidate')
         .select('candidate')
-        .where('candidate.isImage=1')
         .orderBy('candidate.elo', 'DESC')
         .limit(30)
         .getMany();

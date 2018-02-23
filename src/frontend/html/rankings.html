@@ -3,12 +3,14 @@
 <a class="footer-link" href="#!/">Back</a>
 <br/><br/>
 
-<div ng-repeat="img in candidates">
-    <a ng-href="{{img.url}}">
+<div ng-repeat="candidate in candidates">
+    <a ng-href="{{candidate.url}}">
         <img style="display:inline-block"
-             ng-src="{{img.url}}">
+             ng-src="{{candidate.url}}"
+             ng-if="candidate.isImage">
+        <span ng-if="!candidate.isImage">{{candidate.url}}</span>
     </a>
-    <span>{{img.elo | number:0}}</span>
+    <span>{{candidate.elo | number:0}}</span>
 </div>
 
 <a class="footer-link" href="#!/">Back</a>
