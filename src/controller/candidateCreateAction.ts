@@ -6,7 +6,19 @@ import {OK, UNPROCESSABLE_ENTITY} from "http-status-codes";
 import {isTimestampValid} from "../lib/UtilTime";
 import {verifyPowHash} from "../lib/UtilPow";
 import * as validUrl from "valid-url";
+import * as request from "request";
+import {isImageContentType, isImageUrl} from "../lib/UtilIContentType";
 
+function getContentType(url): Promise<string> {
+    return new Promise<string>((resolve, reject) => {
+        return request.get(url,
+            (err, res) => {
+                if (err) return reject(err);
+                if (res.statusCode !== OK) return reject();
+                return resolve(res.headers['Content-Type']);
+            });
+    });
+}
 
 export async function candidateCreateAction(context: Context) {
     //Validate timestamp
@@ -49,18 +61,30 @@ export async function candidateCreateAction(context: Context) {
         context.request.body.url
     );
 
-    //todo verify 200 status
-    //todo use content-type to check if image
-
+    let isImage = false;
+    let contentType;
+    try {
+        contentType = await getContentType(context.request.body.url);
+    } catch (e) {
+        throw new ResponseError(
+            'Sorry, that page didn\'t load for us.',
+            UNPROCESSABLE_ENTITY,
+            e
+        );
+    }
+    if (contentType) {
+        isImage = isImageContentType(contentType);
+    } else {
+        isImage = isImageUrl(context.request.body.url);
+    }
 
 
     const repo = getManager().getRepository(Candidate);
 
     const newCandidate = repo.create({
         url: context.request.body.url,
-
         elo: 1200,
-        isImage: false
+        isImage: isImage
     });
 
     await repo.save(newCandidate);

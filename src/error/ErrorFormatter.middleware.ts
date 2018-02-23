@@ -63,7 +63,7 @@ function convertUnknownErrorToResponseError(e): ResponseError {
 function canIgnore(err: ResponseError) {
     if (err.status === UNAUTHORIZED) return true;
     if (err.status === FORBIDDEN) return true;
-    if (err.status === UNPROCESSABLE_ENTITY) return true;
+    // if (err.status === UNPROCESSABLE_ENTITY) return true;
     if (err.status === NOT_FOUND) return true;
     return false;
 }
