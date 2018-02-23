@@ -2,7 +2,7 @@ import {Context} from "koa";
 import {getManager} from "typeorm";
 import {Candidate} from "../entity/Candidate";
 import ResponseError from "../error/ResponseError";
-import {UNPROCESSABLE_ENTITY} from "http-status-codes";
+import {OK, UNPROCESSABLE_ENTITY} from "http-status-codes";
 import {isTimestampValid} from "../lib/UtilTime";
 import {verifyPowHash} from "../lib/UtilPow";
 import * as validUrl from "valid-url";
@@ -65,5 +65,5 @@ export async function candidateCreateAction(context: Context) {
 
     await repo.save(newCandidate);
 
-    context.status = 201;
+    context.status = OK;
 }

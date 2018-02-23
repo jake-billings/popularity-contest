@@ -4,6 +4,7 @@ import * as Koa from "koa";
 import * as Router from "koa-router";
 import * as serve from "koa-static";
 import * as bodyParser from "koa-bodyparser";
+import * as cors from "@koa/cors";
 import {AppRoutes} from "./routes";
 import errorFormatterMiddleware from "./error/ErrorFormatter.middleware";
 
@@ -22,6 +23,7 @@ createConnection().then(async connection => {
     // run app
     app.use(bodyParser());
     app.use(errorFormatterMiddleware);
+    app.use(cors());
     app.use(router.routes());
     app.use(router.allowedMethods());
     app.use(serve(__dirname + '/frontend'));

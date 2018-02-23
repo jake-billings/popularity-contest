@@ -9,9 +9,17 @@
 </head>
 <body>
 <script>
+    popularityContest.init();
     popularityContest.onLoad(function () {
         console.log('load');
-        console.log(popularityContest.generateElection("http://eakjb.com"))
+        // console.log(popularityContest.generateElection("http://eakjb.com"))
+        // console.log()
+        popularityContest.submit("http://eakadsfjbasdfasdf.com")
+            .then(function () {
+                console.log('done')
+            }, function () {
+                console.log('fail')
+            })
     })
 </script>
 </body>
