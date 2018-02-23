@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+
+  "name": "Spider",
+  "description": "The reincarnation of a dream. The perfection of a vision. Random links on the internet.",
+  "version": "1.0",
+
+  "icons": {
+    "16": "logo/LogoV116.png",
+    "48": "logo/LogoV148.png",
+    "128": "logo/LogoV1128.png"
+  },
+
+  "browser_action": {
+    "default_icon": "logo/LogoV148.png",
+    "default_popup": "popup/popup.html"
+  },
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "notifications",
+    "contextMenus"
+  ],
+  "background": {
+    "page": "background/background.html"
+  }
+}
