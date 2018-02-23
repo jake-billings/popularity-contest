@@ -43,6 +43,7 @@ export async function electionCreateAction(context: Context) {
 
     const candidates = await candidateRepo.createQueryBuilder('candidate')
         .select('candidate')
+        .where('candidate.isImage = true')
         .orderBy('RAND()', 'DESC')
         .limit(2)
         .getMany();

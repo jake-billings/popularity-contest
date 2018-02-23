@@ -9,17 +9,16 @@ angular.module('popularity-contest', ['ngRoute'])
                 templateUrl: 'html/election.html',
                 controller: 'ElectionCtrl'
             })
-            // .when('/rankings', {
-            //     templateUrl: 'html/rankings.html',
-            //     controller: 'Rankings'
-            // })
+            .when('/rankings', {
+                templateUrl: 'html/rankings.html',
+                controller: 'RankingsCtrl'
+            })
             .otherwise({
                 redirectTo: '/election'
             })
     }])
     .service('API', ['$q', 'PopularityContest', function ($q, PopularityContest) {
         this.generateElection = function () {
-            console.log('asdfasdfasdf')
             var defer = $q.defer();
             PopularityContest.generateElection()
                 .done(function (data) {
@@ -33,6 +32,17 @@ angular.module('popularity-contest', ['ngRoute'])
         this.vote = function (_id, voteForA) {
             var defer = $q.defer();
             PopularityContest.vote(_id, voteForA)
+                .done(function (data) {
+                    return defer.resolve(data);
+                })
+                .fail(function (err) {
+                    return defer.reject(err);
+                });
+            return defer.promise;
+        };
+        this.getCandidates = function () {
+            var defer = $q.defer();
+            PopularityContest.getCandidates()
                 .done(function (data) {
                     return defer.resolve(data);
                 })
@@ -61,4 +71,15 @@ angular.module('popularity-contest', ['ngRoute'])
             });
             $scope.load();
         }
+    }])
+    .controller('RankingsCtrl', ['$scope', 'API', function ($scope, API) {
+
+        $scope.load = function () {
+            API.getCandidates().then(function (candidates) {
+                $scope.candidates = candidates;
+            }, function (err) {
+                console.error(err);
+            });
+        };
+        $scope.load();
     }]);

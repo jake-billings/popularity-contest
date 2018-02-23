@@ -1,0 +1,14 @@
+<h1>Rankings</h1>
+
+<a class="footer-link" href="#!/">Back</a>
+<br/><br/>
+
+<div ng-repeat="img in candidates">
+    <a ng-href="{{img.url}}">
+        <img style="display:inline-block"
+             ng-src="{{img.url}}">
+    </a>
+    <span>{{img.elo | number:0}}</span>
+</div>
+
+<a class="footer-link" href="#!/">Back</a>

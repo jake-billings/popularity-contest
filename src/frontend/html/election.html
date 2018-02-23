@@ -1,5 +1,12 @@
-<div>
-    <p>{{election.a.url}} <a href ng-click="vote(true)">Vote A</a></p>
-    <p>{{election.b.url}} <a href ng-click="vote(false)">Vote B</a> </p>
+<h1>Click One</h1>
 
+<div class="image-container">
+    <img class=image"
+         ng-src="{{election.a.url}}"
+         ng-click="vote(true)">
+    <img class=image"
+         ng-src="{{election.b.url}}"
+         ng-click="vote(false)">
 </div>
+
+<a class="footer-link" href="#!/rankings">Rankings</a>

@@ -114,4 +114,8 @@
     exports.getCount = function () {
         return $.get(API_BASE + '/count');
     };
+
+    exports.getCandidates = function () {
+        return $.get(API_BASE + '/candidates');
+    };
 }));
