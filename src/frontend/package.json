@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.6.9",
+    "angular-route": "^1.6.9",
     "jquery": "^3.3.1",
     "js-sha256": "^0.9.0"
   }

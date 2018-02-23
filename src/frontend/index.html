@@ -6,21 +6,11 @@
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/js-sha256/build/sha256.min.js"></script>
     <script src="lib/popularity-contest.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-route/angular-route.min.js"></script>
+    <script src="app.js"></script>
 </head>
-<body>
-<script>
-    popularityContest.init();
-    popularityContest.onLoad(function () {
-        console.log('load');
-        // console.log(popularityContest.generateElection("http://eakjb.com"))
-        // console.log()
-        popularityContest.submit("http://eakadsfjbasdfasdf.com")
-            .then(function () {
-                console.log('done')
-            }, function () {
-                console.log('fail')
-            })
-    })
-</script>
+<body ng-app="popularity-contest">
+<ng-view></ng-view>
 </body>
 </html>
