@@ -3,5 +3,5 @@ export function getUnixTime(): number {
 }
 
 export function isTimestampValid(time: number): boolean {
-    return Math.abs(getUnixTime() - time) < 10;
+    return Math.abs(getUnixTime() - time) < 100;
 }
