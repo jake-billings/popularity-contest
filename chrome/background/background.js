@@ -1,5 +1,5 @@
 function callback(event) {
-    url = event.linkUrl;
+    url = event.srcUrl||event.linkUrl;
     popularityContest.submit(url)
         .done(function () {
             notify('Successfully Submitted Link', url);
