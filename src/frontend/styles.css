@@ -6,17 +6,17 @@ h1,p,a {
     display: block;
 }
 img {
-    width: 200px;
+    width: 300px;
     margin-top:0;
     margin-bottom: 0;
-    margin-left: auto;
-    margin-right: auto;
-    display:block;
+    margin-left: 80px;
+    margin-right: 80px;
+    display:inline-block;
 }
 img:hover {
     cursor:pointer;
 }
 .image-container {
-    width:50%;
-    display: inline-block;
+    width:100%;
+    text-align: center;
 }
