@@ -1,3 +1,12 @@
+/**
+ * popularity-contest
+ *
+ * angular module
+ *
+ * very simple angular application to vote on elections and view rankings from the popularity-contest backend
+ *
+ * see popularity-contest.js for API documentation; all the API service does is wrap jQuery promises with Angular ones
+ */
 angular.module('popularity-contest', ['ngRoute'])
     .factory('PopularityContest', function () {
         popularityContest.init();

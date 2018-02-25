@@ -9,7 +9,28 @@ import * as validUrl from "valid-url";
 import {Election} from "../entity/Election";
 import {applyElo} from "../lib/UtilElo";
 
-
+/**
+ * electionVoteAction()
+ *
+ * POST /vote
+ *
+ * vote in an election created by the POST /election route
+ *
+ * no proof-of-work is required by this route because proof-of-work is required to create the election object.
+ *  Once a vote is received on an election object, the election object is deleted and additional attempts to
+ *  vote on it will fail. this prevents spam on this route, so no PoW is required.
+ *
+ * Steps
+ *  1. Validate datatypes
+ *  2. query the election
+ *  3. apply the user's vote to the target candidates
+ *  4. save the changes to elo rankings
+ *  5. delete the election object to prevent double voting
+ *
+ *
+ * @param {Application.Context} context
+ * @returns {Promise<void>}
+ */
 export async function electionVoteAction(context: Context) {
     if (typeof context.request.body._id !== 'string') throw new ResponseError(
         'missing string field \'_id\' from request',

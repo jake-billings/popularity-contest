@@ -9,6 +9,28 @@ import * as validUrl from "valid-url";
 import {Election} from "../entity/Election";
 
 
+/**
+ * electionCreateAction()
+ *
+ * POST /election
+ *
+ * creates an election
+ *  - an election is an opportunity to vote between two random candidates from the database
+ *  - the object is created as a backend database object to force frontend users to vote in
+ *    the random order determined by the server. without this database object, users could
+ *    vote on whatever candidates they choose; elections should occur between random candidates
+ *    for proper elo rankings
+ *
+ * Steps:
+ *  1. validate timestamp as part of proof of work validation
+ *  2. validate nonce and hash data types
+ *  3. validate proof of work hash to prevent spam
+ *  4. create an election object with two random candidates from the database
+ *  5. return the election to the user and store it in the database
+ *
+ * @param {Application.Context} context
+ * @returns {Promise<void>}
+ */
 export async function electionCreateAction(context: Context) {
     //Validate timestamp
     if (typeof context.request.body.time !== 'number') throw new ResponseError(
