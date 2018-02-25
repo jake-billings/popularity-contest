@@ -3,6 +3,7 @@ import {createConnection} from "typeorm";
 import * as Koa from "koa";
 import * as Router from "koa-router";
 import * as serve from "koa-static";
+import * as logger from "koa-logger";
 import * as bodyParser from "koa-bodyparser";
 import * as cors from "@koa/cors";
 import {AppRoutes} from "./routes";
@@ -21,6 +22,7 @@ createConnection().then(async connection => {
     AppRoutes.forEach(route => router[route.method]('/api'+route.path, route.action));
 
     // run app
+    app.use(logger())
     app.use(bodyParser());
     app.use(errorFormatterMiddleware);
     app.use(cors());
