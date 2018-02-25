@@ -29,5 +29,7 @@ function getCurrentUrl(callback) {
     });
 }
 
-popularityContest.init('http://159.65.232.95:3000/api');
-// popularityContest.init('http://localhost:3000/api');
+var MAIN_SITE = 'http://159.65.232.95';
+var API_BASE = MAIN_SITE + '/api';
+
+popularityContest.init(API_BASE);

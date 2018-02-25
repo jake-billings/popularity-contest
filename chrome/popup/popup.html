@@ -12,8 +12,25 @@
 </head>
 <body>
 <h2><img src="../logo/LogoV148.png">Spider</h2>
-<button class="btn btn-small btn-primary" id="submit">Submit</button>
-<button class="btn btn-small btn-primary" id="goToRandom">Go</button>
+<p id="linkCount">Loading link count...</p>
+<div class="button-wrapper">
+    <div id="buttons">
+        <button class="btn btn-small btn-primary" id="submit">Submit</button>
+        <button class="btn btn-small btn-primary" id="goToRandom">Go</button>
+    </div>
+    <div id="myProgress" class="hidden">
+        <p class="progress-p">Working hard...</p>
+    </div>
+</div>
+<div class="instructions-wrapper">
+    <p class="instructions">Press Submit (or Alt-K) to add this tab to the repository.</p>
+    <p class="instructions">Press Go (or Alt-J) to navigate to a random page.</p>
+    <p class="instructions">To add an image to the election, right click it.<br>Then, click Submit Image to Spider.</p>
+    <p class="instructions">Press Alt-J to add any </p>
+    <p class="instructions">
+        <a id="goToMainSite">Vote on your Favorite</a></p>
+    <br>
+</div>
 <script src="app.js"></script>
 </body>
 </html>

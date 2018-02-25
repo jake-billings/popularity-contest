@@ -1,16 +1,13 @@
 {
   "manifest_version": 2,
-
   "name": "Spider",
   "description": "The reincarnation of a dream. The perfection of a vision. Random links on the internet.",
-  "version": "1.0",
-
+  "version": "1.1.0",
   "icons": {
     "16": "logo/LogoV116.png",
     "48": "logo/LogoV148.png",
     "128": "logo/LogoV1128.png"
   },
-
   "browser_action": {
     "default_icon": "logo/LogoV148.png",
     "default_popup": "popup/popup.html"
@@ -23,5 +20,21 @@
   ],
   "background": {
     "page": "background/background.html"
+  },
+  "commands": {
+    "spider-goto-random": {
+      "suggested_key": {
+        "default": "Alt+J",
+        "mac": "Alt+J"
+      },
+      "description": "Spider: Go to Random Page"
+    },
+    "spider-add": {
+      "suggested_key": {
+        "default": "Alt+K",
+        "mac": "Alt+K"
+      },
+      "description": "Spider: Add Current Page"
+    }
   }
 }
