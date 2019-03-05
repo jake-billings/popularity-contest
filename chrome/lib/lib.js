@@ -10,9 +10,9 @@
  *
  * address of where the server is hosted for popularity-contest
  *
- * @type {string} 'http://159.65.232.95'
+ * @type {string} 'http://bestobscure.xyz'
  */
-var MAIN_SITE = 'http://159.65.232.95';
+var MAIN_SITE = 'http://bestobscure.xyz';
 
 /**
  * API_BASE
